@@ -1,0 +1,238 @@
+/* ================= IMPORT FONTS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap');
+
+/* ================= GLOBAL RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================= BODY & BACKGROUND ================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at top left, rgba(255,180,200,0.15), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(255,140,180,0.12), transparent 65%),
+    linear-gradient(180deg, #0f0f1a, #151527, #1a1a2e);
+  position: relative;
+}
+
+
+/* Optional subtle texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.02),
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+/* ================= CENTER CONTAINER ================= */
+.center {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ================= HIDDEN ELEMENTS ================= */
+.hidden { display: none; }
+
+/* ================= INPUT FIELD ================= */
+input {
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 15px rgba(255,120,160,0.5);
+}
+
+/* ================= BUTTON ================= */
+/* Container stacks items vertically and centers them */
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2.5rem;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #ff758c, #ff7eb3);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 10px 30px rgba(255,120,160,0.4);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(255,120,160,0.6);
+}
+
+#rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* so clicks pass through */
+  overflow: hidden;
+  z-index: 999;
+}
+
+.falling {
+  position: absolute;
+  top: -50px; /* start above screen */
+  opacity: 0.8;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+/* ================= MAIN TITLE ================= */
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  letter-spacing: 2px;
+  line-height: 1.1;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.05em;
+  color: #ffe6ef;
+  word-break: keep-all;
+}
+
+/* Keep name together */
+.name {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Glowing letters animation */
+.title span {
+  display: inline-block;
+  animation: letterGlow 3s ease-in-out infinite;
+}
+
+/* Slight delay per letter for sweeping glow */
+.title span:nth-child(n) { animation-delay: calc(var(--i) * 0.1s); }
+
+@keyframes letterGlow {
+  0%,100% {
+    text-shadow: 0 0 5px rgba(255,120,160,0.3),
+                 0 0 15px rgba(255,120,160,0.2);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255,120,160,0.9),
+                 0 0 35px rgba(255,120,160,0.8),
+                 0 0 60px rgba(255,160,190,0.6);
+  }
+}
+
+/* ================= IMAGE FRAME ================= */
+.photo-frame {
+  display: inline-block;
+  margin: 1.5rem auto;
+  padding: 10px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c, #ffd1dc);
+  box-shadow:
+    0 0 20px rgba(255,120,160,0.5),
+    0 0 40px rgba(255,120,160,0.4),
+    0 0 70px rgba(255,160,190,0.3);
+  animation: frameGlow 4s ease-in-out infinite;
+}
+
+.photo-frame img {
+  display: block;
+  max-width: 300px;
+  border-radius: 18px;
+}
+
+@keyframes frameGlow {
+  0%,100% {
+    box-shadow: 0 0 20px rgba(255,120,160,0.4),
+                0 0 40px rgba(255,120,160,0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255,120,160,0.7),
+                0 0 70px rgba(255,160,190,0.6);
+  }
+}
+
+/* ================= FADE-IN ================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= GALLERY ================= */
+.gallery {
+  max-width: 900px;
+  margin: auto;
+  padding-bottom: 4rem;
+}
+
+.story {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* ================= MESSAGE ================= */
+.message {
+  font-size: 1.2rem;
+  line-height: 1.9;
+}
+
+/* ================= RESPONSIVE MOBILE ================= */
+@media (max-width: 480px) {
+  body { overflow-x: hidden; }
+  .title { font-size: 2.6rem; }
+  .photo-frame img { max-width: 240px; }
+  .center { padding: 1.5rem; }
+  .btn { font-size: 1rem; padding: 0.7rem 1.8rem; }
+  .message { font-size: 1.05rem; }
+}
