@@ -12,10 +12,19 @@
 
   <!-- ================= PASSWORD SCREEN ================= -->
   <!-- This section is shown first. User must enter password -->
-  <div id="lock" class="center"> <div> <h2 class="secret-jump">💖 Enter the secret 💖</h2> <!-- Password input --> <input type="password" id="password" placeholder="Password" /> <br /> <!-- Button calls unlock() from script.js --> <button class="btn" onclick="unlock()">Open</button> </div> </div>
+  <div id="lock" class="center">
+  <div>
+    <h2 class="secret-jump">💖 Enter the secret 💖</h2>
 
-  <!-- Container for floating hearts and flowers -->
-<div id="rain-container"></div>
+    <input type="password" id="password" placeholder="Password" />
+    <br />
+
+    <button class="btn" onclick="unlock()">Open</button>
+
+    <p id="error" class="error hidden">Wrong password 😛</p>
+  </div>
+</div>
+
 
 
   <!-- ================= MAIN CONTENT ================= -->
@@ -26,20 +35,27 @@
       <div>
 
         <!-- Main birthday title -->
-        <h1 class="title">
-  <span>H</span><span>a</span><span>p</span><span>p</span><span>y</span>
-  <span> </span>
-  <span>B</span><span>i</span><span>r</span><span>t</span><span>h</span><span>d</span><span>a</span><span>y</span>
-  <span> </span>
-  <span class="name">
+        <h1 class="title vertical-glow">
+
+  <div class="line name-line">
     <span>N</span><span>a</span><span>y</span><span>o</span><span>u</span><span>s</span><span>h</span><span>t</span><span>y</span>
-  </span>
+  </div>
+
+  <div class="line">
+    <span>H</span><span>a</span><span>p</span><span>p</span><span>y</span>
+  </div>
+
+  <div class="line">
+    <span>B</span><span>i</span><span>r</span><span>t</span><span>h</span><span>d</span><span>a</span><span>y</span>
+  </div>
+
 </h1>
+
 
         <!-- Main image -->
         <!-- IMPORTANT: later use relative paths, not C:\ -->
         <div class="photo-frame">
-  <img src="" alt="Her Photo">
+  <img src="img/love.jpeg" alt="Her Photo">
 </div>
 
 

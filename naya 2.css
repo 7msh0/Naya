@@ -127,16 +127,26 @@ input:focus {
 /* ================= MAIN TITLE ================= */
 .title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 8vw, 5rem);
-  letter-spacing: 2px;
-  line-height: 1.1;
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
   text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.05em;
   color: #ffe6ef;
-  word-break: keep-all;
+}
+.title .line {
+  display: flex;
+  justify-content: center;
+  gap: 0.08em;
+}
+
+.title .line:nth-child(1) span {
+  animation-delay: 0s;
+}
+
+.title .line:nth-child(2) span {
+  animation-delay: 0.6s;
+}
+
+.title .line:nth-child(3) span {
+  animation-delay: 1.2s;
 }
 
 /* Keep name together */
@@ -145,24 +155,29 @@ input:focus {
   white-space: nowrap;
 }
 
+.name span {
+  animation-delay: calc((var(--i) - 16) * 0.12s);
+}
+
+
 /* Glowing letters animation */
 .title span {
   display: inline-block;
-  animation: letterGlow 3s ease-in-out infinite;
+  animation: letterGlow 4s ease-in-out infinite;
 }
 
 /* Slight delay per letter for sweeping glow */
 .title span:nth-child(n) { animation-delay: calc(var(--i) * 0.1s); }
 
 @keyframes letterGlow {
-  0%,100% {
-    text-shadow: 0 0 5px rgba(255,120,160,0.3),
-                 0 0 15px rgba(255,120,160,0.2);
+  0%, 100% {
+    color: #ffd6e8; /* soft pink */
+    text-shadow: 0 0 6px rgba(255,140,180,0.4);
   }
+
   50% {
-    text-shadow: 0 0 15px rgba(255,120,160,0.9),
-                 0 0 35px rgba(255,120,160,0.8),
-                 0 0 60px rgba(255,160,190,0.6);
+    color: #e6c8ff; /* soft purple */
+    text-shadow: 0 0 10px rgba(190,140,255,0.6);
   }
 }
 
@@ -197,7 +212,7 @@ input:focus {
   }
 }
 
-/* ================= FADE-IN ================= */
+/* ================= FADE-IN ================ = */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -235,4 +250,20 @@ input:focus {
   .center { padding: 1.5rem; }
   .btn { font-size: 1rem; padding: 0.7rem 1.8rem; }
   .message { font-size: 1.05rem; }
+}
+
+
+.error {
+  margin-top: 1rem;
+  color: #ff9ab3;
+  font-weight: 500;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }

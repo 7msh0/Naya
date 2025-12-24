@@ -2,27 +2,24 @@
 /* Runs when the user clicks "Open" on the password screen */
 function unlock() {
   const pass = document.getElementById('password').value;
+  const error = document.getElementById('error');
 
-  // Check if password is correct
+  // Hide error on each attempt
+  error.classList.add('hidden');
+
   if (pass === 'عسولي') {
 
-    // Hide password screen
     document.getElementById('lock').style.display = 'none';
-
-    // Show main content
     document.getElementById('content').classList.remove('hidden');
 
-    // Start raining hearts and flowers immediately
     startRain();
 
-    // Delay the fade-in button for a smooth effect
     setTimeout(() => {
       document.getElementById('moreBtn').classList.add('show');
     }, 1500);
 
   } else {
-    // Wrong password message
-    alert('Wrong password 😛');
+    error.classList.remove('hidden');
   }
 }
 /* ================= GALLERY & RAIN ================= */
