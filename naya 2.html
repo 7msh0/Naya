@@ -4,101 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>❤️Happy Birthday❤️</title>
-
-  <!-- Connect external CSS file -->
   <link rel="stylesheet" href="naya 2.css">
 </head>
 <body>
+<div id="rain-container"></div>
 
-  <!-- ================= PASSWORD SCREEN ================= -->
-  <!-- This section is shown first. User must enter password -->
-  <div id="lock" class="center">
+<!-- PASSWORD SCREEN -->
+<div id="lock" class="center">
   <div>
     <h2 class="secret-jump">💖 Enter the secret 💖</h2>
-
     <input type="password" id="password" placeholder="Password" />
     <br />
-
     <button class="btn" onclick="unlock()">Open</button>
-
     <p id="error" class="error hidden">Wrong password 😛</p>
   </div>
 </div>
 
+<!-- MAIN CONTENT -->
+<div id="content" class="hidden">
+  <div class="center">
+    <h1 class="title">
+      <span class="line" style="--i:0">Happy </span>
+      <span class="line" style="--i:1">Birthday</span><br>
+      <span class="name">
+        <span style="--i:0">N</span>
+        <span style="--i:1">a</span>
+        <span style="--i:2">y</span>
+        <span style="--i:3">o</span>
+        <span style="--i:4">u</span>
+        <span style="--i:5">s</span>
+        <span style="--i:6">h</span>
+        <span style="--i:7">t</span>
+        <span style="--i:8">y</span>
+      </span>
+    </h1>
 
+    <!-- PHOTO CAROUSEL -->
+    <!-- PHOTO CAROUSEL -->
+<div class="photo-carousel">
+  <button class="carousel-btn left" onclick="prevPhoto()">❮</button>
 
-  <!-- ================= MAIN CONTENT ================= -->
-  <!-- Hidden at first, shown only after correct password -->
-  <div id="content" class="hidden">
-
-    <div class="center">
-      <div>
-
-        <!-- Main birthday title -->
-        <h1 class="title vertical-glow">
-
-  <div class="line name-line">
-    <span>N</span><span>a</span><span>y</span><span>o</span><span>u</span><span>s</span><span>h</span><span>t</span><span>y</span>
+  <div class="photo-frame">
+    <div class="photo-inner">
+      <img id="carousel-image" src="img/love.jpeg" alt="Memory">
+      <div id="carousel-rain"></div>
+    </div>
   </div>
 
-  <div class="line">
-    <span>H</span><span>a</span><span>p</span><span>p</span><span>y</span>
-  </div>
-
-  <div class="line">
-    <span>B</span><span>i</span><span>r</span><span>t</span><span>h</span><span>d</span><span>a</span><span>y</span>
-  </div>
-
-</h1>
-
-
-        <!-- Main image -->
-        <!-- IMPORTANT: later use relative paths, not C:\ -->
-        <div class="photo-frame">
-  <img src="img/love.jpeg" alt="Her Photo">
+  <button class="carousel-btn right" onclick="nextPhoto()">❯</button>
 </div>
 
-
-
-
-        <!-- Personal message -->
-        <p class="message">
-          من أحمد الى نايا <br>
-          كل عام وانتي بخير
-        </p>
-
-        <!-- Button to reveal gallery -->
-        <button id="moreBtn" class="btn fade-in">
-          Open Memories ✨
-        </button>
-
-      </div>
-    </div>
-
-    <!-- ================= GALLERY SECTION ================= -->
-    <!-- Hidden until "Open Memories" is clicked -->
-    <div id="gallery" class="gallery hidden">
-
-      <!-- Single memory block -->
-      <div class="story">
-        <img src="" alt="Memory 1" />
-        <p><!-- story here --></p>
-      </div>
-
-      <div class="story">
-        <img src="" alt="Memory 2" />
-        <p><!-- story here --></p>
-      </div>
-
-      <div class="story">
-        <img src="" alt="Memory 3" />
-        <p><!-- story here --></p>
-      </div>
-
-    </div>
+  <!-- GALLERY SECTION -->
+  <div id="gallery" class="gallery hidden">
+    <div class="story"><img src="" alt="Memory 1" /><p></p></div>
+    <div class="story"><img src="" alt="Memory 2" /><p></p></div>
+    <div class="story"><img src="" alt="Memory 3" /><p></p></div>
   </div>
+</div>
 
-  <!-- Connect external JavaScript file -->
-  <script src="naya 2.js"></script>
+<script src="naya 2.js"></script>
 </body>
+
+
 </html>
