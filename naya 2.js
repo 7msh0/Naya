@@ -10,16 +10,10 @@ function unlock() {
     document.getElementById('content').classList.remove('hidden');
 
     startRain();
-
-    setTimeout(() => {
-      document.getElementById('moreBtn').classList.add('show');
-    }, 1500);
   } else {
     error.classList.remove('hidden');
   }
 }
-
-
 
 /* ================= FALLING HEARTS (FULL PAGE) ================= */
 function startRain() {
@@ -41,7 +35,7 @@ function startRain() {
     elem.addEventListener('animationend', () => elem.remove());
   }
 }
-a
+
 /* ================= PHOTO CAROUSEL ================= */
 const photos = [
   { src: 'img/love.jpeg' },
@@ -49,7 +43,6 @@ const photos = [
   { src: 'img/after.jpeg' },
   { src: 'img/huge.jpeg' },
   { src: 'img/food.png' }
-  // Removed studying.png
 ];
 
 let currentIndex = 0;
@@ -58,15 +51,33 @@ function updateCarousel() {
   const image = document.getElementById('carousel-image');
   if (!image) return;
 
-  image.style.opacity = 0;
+  const sections = document.querySelectorAll('.poem-section');
+  const activeSection = document.querySelector(`.poem-section[data-photo="${currentIndex}"]`);
+
+  // Fade out text
+  sections.forEach(section => section.style.opacity = 0);
+
+  // Trigger shake on image
+  image.classList.add('shake');
 
   setTimeout(() => {
+    // Swap the photo
     image.src = photos[currentIndex].src;
-    image.style.opacity = 1;
-  }, 250);
+
+    // Remove shake so it can be triggered next time
+    image.classList.remove('shake');
+
+    // Fade in text
+    sections.forEach(section => section.classList.remove('active'));
+    if (activeSection) {
+      activeSection.classList.add('active');
+      setTimeout(() => activeSection.style.opacity = 1, 50);
+    }
+  }, 300);
 
   startCarouselRain();
 }
+
 
 
 function nextPhoto() {
@@ -105,4 +116,28 @@ function startCarouselRain() {
 /* ================= INITIAL LOAD ================= */
 document.addEventListener('DOMContentLoaded', () => {
   updateCarousel();
+});
+
+/* ================= CLEAN EASTER EGG ================= */
+let eggClicks = 0;
+let eggTimer;
+
+const title = document.querySelector('.title');
+const egg = document.getElementById('easter-egg');
+const eggClose = document.getElementById('egg-close');
+
+title.addEventListener('click', () => {
+  eggClicks++;
+
+  clearTimeout(eggTimer);
+  eggTimer = setTimeout(() => eggClicks = 0, 2000);
+
+  if (eggClicks === 5) {
+    egg.classList.add('active');
+    eggClicks = 0;
+  }
+});
+
+eggClose.addEventListener('click', () => {
+  egg.classList.remove('active');
 });

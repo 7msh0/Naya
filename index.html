@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>❤️Happy Birthday❤️</title>
+  <link rel="stylesheet" href="naya 2.css">
+  <!-- Add Arabic fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Lateef&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="rain-container"></div>
+
+<!-- PASSWORD SCREEN -->
+<div id="lock" class="center">
+  <div>
+    <h2 class="secret-jump">💖 Enter the secret 💖</h2>
+    <input type="password" id="password" placeholder="Password" />
+    <br />
+    <button class="btn" onclick="unlock()">Open</button>
+    <p id="error" class="error hidden">Wrong password my love </p>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="content" class="hidden">
+  <div class="center">
+    <h1 class="title">
+      <span class="line" style="--i:0">Happy </span>
+      <span class="line" style="--i:1">Birthday</span><br>
+      <span class="name">
+        <span style="--i:0">N</span>
+        <span style="--i:1">a</span>
+        <span style="--i:2">y</span>
+        <span style="--i:3">o</span>
+        <span style="--i:4">u</span>
+        <span style="--i:5">s</span>
+        <span style="--i:6">h</span>
+        <span style="--i:7">t</span>
+        <span style="--i:8">y</span>
+      </span>
+    </h1>
+
+    <!-- PHOTO CAROUSEL WITH POEM -->
+    <div class="photo-poem-container">
+      <div class="carousel-wrapper">
+        <button class="carousel-btn left" onclick="prevPhoto()">❮</button>
+        
+        <div class="photo-frame">
+          <div class="photo-inner">
+            <img id="carousel-image" src="img/love.jpeg" alt="Memory">
+            <div id="carousel-rain"></div>
+          </div>
+        </div>
+        
+        <button class="carousel-btn right" onclick="nextPhoto()">❯</button>
+      </div>
+
+      <!-- POEM SECTIONS (One for each photo) -->
+      <div class="poem-container">
+        <!-- Section 1 -->
+        <div class="poem-section active" data-photo="0">
+          <h3 class="section-title">حزنها وأثره</h3>
+          <br>
+          <div class="poem-content">
+            <p>حبيبتي أنت نوري وبهجتي</p>
+            <p>معكِ تحلو أيامي وتغدو لي فرحتي</p>
+            <br>
+
+
+            <p>أعدك أن أكون لكِ قلبًا ورفيقًا</p>
+            <p>وأزرع حولكِ حبًا صادقًا وفيقًا</p>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="poem-section" data-photo="1">
+          <h3 class="section-title"> نفسي وحزني</h3>
+          <br>
+          <div class="poem-content">
+            <p>كنتُ ضائعًا بين الليل والنهارِ</p>
+            <p>حتى أتيتِ فأشرق قلبي بالأنوارِ</p>
+            <br>
+            <p>ارتفعتُ فوق الأحزان والغيابِ</p>
+            <p>معك صرت أنام بلا ارتياب</p>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="poem-section" data-photo="2">
+          <h3 class="section-title">بناء نفسي</h3>
+          <br>
+          <div class="poem-content">
+            <p>أبني نفسي لأرتقي فوق كل قيودِ</p>
+            <p>أتعلم الصبر وأزرع الأمل والوجودِ</p>
+            <br>
+            <p>أسعى لأكون لكِ ما تستحقين دومًا</p>
+            <p>وروحي تهتف بحبكِ بلا حدودِ</p>
+          </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="poem-section" data-photo="3">
+          <h3 class="section-title"> مستقبلنا وعدم الاستسلام</h3>
+          <br>
+          <div class="poem-content">
+            <p>سنمضي معًا نحو أيامٍ مشرقةٍ</p>
+            <p>نبني أحلامنا مهما كانت صعبةً ومثقلةٍ</p>
+            <br>
+            <p>لن نتراجع مهما عصفت بنا الرياحُ</p>
+            <p>وروحانا تبقى قويةً، حبنا لا ينهارُ</p>
+          </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="poem-section" data-photo="4">
+          <h3 class="section-title">تمنياتي </h3>
+          <br>
+          <div class="poem-content">
+            <p>أتمنى لكِ أيامًا مليئة بالنجاح والضياء</p>
+            <p>ويبقى حبنا خالدًا حتى آخر انتهاء</p>
+            <br>
+            <p>تبقى حياتي معكِ أغلى ما أملكُ</p>
+            <p>وأحبكِ بلا حدودٍ، اليوم وغدًا وكلّ ما أملكُ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY SECTION -->
+    <div id="gallery" class="gallery hidden">
+      <div class="story"><img src="" alt="Memory 1" /><p></p></div>
+      <div class="story"><img src="" alt="Memory 2" /><p></p></div>
+      <div class="story"><img src="" alt="Memory 3" /><p></p></div>
+    </div>
+    <!-- EASTER EGG OVERLAY -->
+<div id="easter-egg">
+  <div class="egg-box">
+    <h1>🤫</h1>
+    <p>
+      انا بحبك لاتقولي لحدا
+    </p>
+    <button id="egg-close" class="btn">Go Back</button>
+  </div>
+</div>
+
+
+<script src="naya 2.js"></script>
+</body>
+</html>
